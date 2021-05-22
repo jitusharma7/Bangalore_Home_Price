@@ -8,7 +8,6 @@ This project aim is to predict home price in Bangalore and identify key driving 
   * [Data_Preprocessing](#Data_Preprocessing)
   * [Model_Building](#Model_Building)
   * [Result](#Result)
-  * [Business_Recommendation](#Business_Recommendation)
   * [Credit](#Credit)
   
 ## Problem_Definition
@@ -33,36 +32,26 @@ Bangalore is a well known IT hub. Its very crucial for a newcomer who starts his
 
 ## Data_Preprocessing
 * Null Values drpped due to 1% NA's values
-* Dropping three features 'SLNO','Candidate Ref' and 'Location' dueto high cardinality
-* Applying Label Encoding to'offered band' ordinal feature.
-* Applying one hot encoding to restof the categorical features
-* Used drop_first feature of one hotencoding to avoidmulticollinearity
-* Checked for multicollinearity using correlation mapand variance Inflation factor,Two features 'Pecent hike expected in CTC' and'Percent hike offered in CTC' has been removed
-
-    <img src="/VIF.PNG" width="400">
+* Dropping  features  - 'area_type','society','balcony','availability' due to high cardinality
+* Applying mean of max and min value for the range value of total Area Feature
+* Creaetd new feature - Price per square feet
+* Applying dimensoality reduction technique on 'Location' feature to reduce number of locations.
+* Outlier removal with the use of +/- 3 standard deviation
+* Applying one hot encoding for location feature
 
 
 ## Model_Building
-* XG Boost performs better thanother models
-* Hyperparameters tuning isdone by RandomizedSearchCV for xgboost
-* It has a higher accuracy of83.24%
-* True Negative is almost doublethan false negative
-* Rest of the models have verypoor performance in terms ofpredicting true negative values
-* True negative values are crucialbecause it is important to knowwho will not join theorganization
+* Created X & Y datafraem wehre X - features , Y - Target  Variable 
+* Applying GridSearchCV hyperparameter tuning on - linear regression , Lasso , decision Tree .
+* 
 
 
-     <img src="/ModelComparison.PNG" width="400">
 
 ## Result
-* XG Boost classifieroutperforms here among all model with 83.24% accuracy
-* Feature importance score from XGBoost classifier
-* Top 3 important features = 'Percent difference CTC', 'Duration to accept offer', 'Age'
-* Least 3 important features = 'Joining Bonus_Yes', 'LOB_EAS', 'LOB_Healthcare'
-
-## Business_Recommendation
-* Firm should focus on 3 important features 'Percent difference CTC', 'Duration to accept offer'& 'Age'
-* Firm should introduce new offering/schemes  based on these 3 features combination so that attrition rate can reduce.
+* Linear Regression Algorithms perform bettern than other models.
+* linear regression algorith gives accuracy - 84.78%
+* The key deciding  features of a home price are  'toal Square feet','no. of BHK','location' .
 
 ## Credit
-[dare2Compete](https://https://dare2compete.com/) - This project has been done on this competitive platform.
+ This project has been done as a course project .
 
